@@ -16,7 +16,7 @@ const QuizScreen: React.FC = () => {
     const questions: Questions[] = items[parseInt(tuple)].questions;
     const [answers, setAnswers] = useState<Answers[]>([]);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const timeRef = useRef<string>("0"); 
+    const timeRef = useRef<number>(0); 
 
     useEffect(() => {
         const intervalId = setInterval(countTime, 1000);
@@ -62,7 +62,7 @@ const QuizScreen: React.FC = () => {
     timeRef.current +=1;
     
     if (buttonRef.current) {
-      buttonRef.current.textContent = timeRef.current;
+      buttonRef.current.textContent = String(timeRef.current);
     }
   }
 
